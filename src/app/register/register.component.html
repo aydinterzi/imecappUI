@@ -3,18 +3,18 @@
     <div class="col-4"></div>
     <div class="col-4 mt-5">
       <p class="text-center fs-3 text-light" style="margin-top: 70px;">Sign up</p>
-      <form>
+      <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
         <div class="mb-3">
           <label for="username" class="text-white form-label">Username</label>
-          <input type="text" id="username" class="form-control" placeholder="Enter your username">
+          <input type="text" id="username" class="form-control" formControlName="username" placeholder="Enter your username">
         </div>
         <div class="mb-3">
           <label for="email" class="text-white form-label">Email</label>
-          <input type="email" id="email" class="form-control" placeholder="Enter your email">
+          <input type="email" id="email" class="form-control" formControlName="email" placeholder="Enter your email">
         </div>
         <div class="mb-3">
           <label for="password" class="text-white form-label">Password</label>
-          <input type="password" id="password" class="form-control" placeholder="Enter your password">
+          <input type="password" id="password" class="form-control" formControlName="password" placeholder="Enter your password">
         </div>
         <div class="d-grid mb-2">
           <button type="submit" class="btn btn-lg text-white" style="background-color: #F03B7A;">Sign up</button>
