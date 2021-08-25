@@ -3,6 +3,16 @@
     <app-sidebar></app-sidebar>
   </div>
   <div class="col-9">
-    İLANLAR GELECEK
+    <div class="row row-cols-1 row-cols-md-4 row-cols-lg-6 g-4">
+      <div *ngFor="let post of posts" class="col">
+        <div class="card ">
+          <div class="card-body">
+            <h5 class="card-title">{{post.title}}</h5>
+            <p class="card-text">{{post.description}}</p>
+          </div>
+          <div class="card-footer">{{post.category}}</div>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
