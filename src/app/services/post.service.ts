@@ -12,5 +12,8 @@ export class PostService {
   getPosts():Observable<Posts[]>{
   return this.http.get<Posts[]>(this.baseUrl);
   }
+  addPost(post:Posts):Observable<Posts>{
+    return this.http.post<Posts>(this.baseUrl,post);
+  }
 
 }

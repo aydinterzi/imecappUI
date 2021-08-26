@@ -1,1 +1,39 @@
-<p>ilanver works!</p>
+<div class="row">
+  <div class="col-4"></div>
+  <div class="col-4">
+    <form [formGroup]="postForm" (ngSubmit)="onSubmit()">
+      <div class="mb-3">
+        <label for="title" class="form-label">Title</label>
+        <input type="text" id="title" class="form-control" placeholder="Enter post title" formControlName="title">
+      </div>
+      <div class="mb-3">
+        <label for="description" class="form-label">Description</label>
+        <textarea id="description" rows="8" class="form-control" placeholder="Enter post description"
+          formControlName="description"></textarea>
+      </div>
+      <div class="mb-3">
+        <label for="category" class="form-label">Category</label>
+        <select id="category" class="form-select" formControlName="category">
+          <option *ngFor="let item of categories" [value]="item">{{item}}</option>
+        </select>
+      </div>
+      <div class="mb-3">
+        <label for="progLanguages" class="form-label">Programming Languages</label>
+        <select id="progLanguages" class="form-select" formControlName="progLanguage">
+          <option *ngFor="let item of progLanguages" [value]="item">{{item}}</option>
+        </select>
+      </div>
+      <div class="mb-3">
+        <label for="languages" class="form-label">Languages</label>
+        <select id="languages" class="form-select" formControlName="language">
+          <option *ngFor="let item of languages" [value]="item">{{item}}</option>
+        </select>
+      </div>
+      <div class="d-grid">
+      <button type="submit" class="btn text-white ms-2"
+        style="background-color: #F03B7A;">Submit</button>
+      </div>
+    </form>
+  </div>
+  <div class="col-4"></div>
+</div>

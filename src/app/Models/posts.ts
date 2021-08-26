@@ -3,4 +3,6 @@ export class Posts{
   title:string;
   category:string;
   description:string;
+  language:string;
+  progLanguage:string;
 }
