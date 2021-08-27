@@ -4,12 +4,13 @@ import { IlanlarComponent } from './ilanlar/ilanlar.component';
 import { IlanverComponent } from './ilanver/ilanver.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
+import { AuthGuard } from './_guards/auth_guard';
 
 const routes: Routes = [
 
   {path:"login",component:LoginComponent},
-  {path:"ilanlar",component:IlanlarComponent},
-  {path:"ilanver",component:IlanverComponent},
+  {path:"ilanlar",component:IlanlarComponent,canActivate:[AuthGuard]},
+  {path:"ilanver",component:IlanverComponent,canActivate:[AuthGuard]},
   {path:"register",component:RegisterComponent}
 ];
 

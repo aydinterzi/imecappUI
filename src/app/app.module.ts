@@ -10,6 +10,12 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { IlanlarComponent } from './ilanlar/ilanlar.component';
 import { IlanverComponent } from './ilanver/ilanver.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
+import { AuthGuard } from './_guards/auth_guard';
+import { JwtModule } from "@auth0/angular-jwt";
+
+export function tokenGetter() {
+  return localStorage.getItem("token");
+}
 
 @NgModule({
   declarations: [
@@ -26,9 +32,16 @@ import { SidebarComponent } from './sidebar/sidebar.component';
     ReactiveFormsModule,
     FormsModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    JwtModule.forRoot({
+      config: {
+        tokenGetter: tokenGetter,
+        allowedDomains: ["localhost:44331"],
+        disallowedRoutes: ["localhost:44331/api/user"],
+      },
+    }),
   ],
-  providers: [],
+  providers: [AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

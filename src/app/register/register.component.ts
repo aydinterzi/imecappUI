@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-register',
@@ -8,7 +9,7 @@ import { FormControl, FormGroup } from '@angular/forms';
 })
 export class RegisterComponent implements OnInit {
 
-  constructor() { }
+  constructor(private authService:AuthService) { }
 
   ngOnInit(): void {
   }
@@ -17,8 +18,13 @@ export class RegisterComponent implements OnInit {
     email:new FormControl(""),
     password:new FormControl("")
   });
-  onSubmit(){
-   console.log( this.userForm.value);
+  register(){
+   this.authService.register(this.userForm.value).subscribe(()=>{
+     console.log("kullanıcı oluşturuldu");
+   },error=>{
+     console.log(error);
+   }
+   );
   }
 
 }
