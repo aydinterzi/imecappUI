@@ -12,6 +12,7 @@ import { IlanverComponent } from './ilanver/ilanver.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { AuthGuard } from './_guards/auth_guard';
 import { JwtModule } from "@auth0/angular-jwt";
+import { NotFoundComponent } from './not-found/not-found.component';
 
 export function tokenGetter() {
   return localStorage.getItem("token");
@@ -25,7 +26,8 @@ export function tokenGetter() {
     NavbarComponent,
     IlanlarComponent,
     IlanverComponent,
-    SidebarComponent
+    SidebarComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,
