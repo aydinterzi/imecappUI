@@ -9,9 +9,7 @@ import { JwtHelperService } from "@auth0/angular-jwt";
 export class AppComponent implements OnInit {
   title = 'imecappUI';
   helper = new JwtHelperService();
-  constructor(private authService:AuthService){
-
-  }
+  constructor(private authService:AuthService){}
   ngOnInit(){
     const token=localStorage.getItem("token");
     if(token){

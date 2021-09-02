@@ -1,19 +1,27 @@
-<nav class="navbar navbar-expand-lg navbar-light shadow-lg rounded mb-5">
+<nav class="navbar navbar-expand-lg navbar-light shadow-lg rounded" [ngClass]="{'margin-bot':loggedIn()}">
   <div class="container">
-    <a class="navbar-brand fs-3">imecapp</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <a class="navbar-brand fs-2" >imecapp</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
+      aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-        <ul class="navbar-nav ms-5 me-auto mt-2">
-          <li class="nav-item">
-            <a [routerLink]="['/ilanlar']" routerLinkActive="active"  class="nav-link fs-5">İLANLAR</a>
-          </li>
-          <li class="nav-item">
-            <a [routerLink]="['/ilanver']" routerLinkActive="active"  class="nav-link fs-5 ms-lg-4">İLAN VER</a>
-          </li>
-        </ul>
-
-      </div>
+      <ul class="navbar-nav ms-5 me-auto mt-2 fs-5">
+        <li class="nav-item">
+          <a [routerLink]="['/ilanlar']" routerLinkActive="active" class="nav-link">İLANLAR</a>
+        </li>
+        <li class="nav-item">
+          <a [routerLink]="['/ilanver']" routerLinkActive="active" class="nav-link  ms-lg-4">İLAN VER</a>
+        </li>
+      </ul>
+      <ul class="navbar-nav ms-auto mt-2 fs-5" *ngIf="loggedIn()">
+        <li class="nav-item">
+          <a class="nav-link">{{authservice.decodedToken?.unique_name}}</a>
+        </li>
+        <li class="nav-item mt-1 ms-5">
+          <button  (click)="logout()" class="btn btn-outline-danger">Logout</button>
+        </li>
+      </ul>
     </div>
+  </div>
 </nav>

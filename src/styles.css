@@ -2,6 +2,6 @@
 @import "~alertifyjs/build/css/alertify.min.css";
 @import "~alertifyjs/build/css/themes/bootstrap.min.css";
 body{
-  overflow: hidden;
+  overflow-x: hidden;
   font-family: 'Lato', sans-serif;
 }

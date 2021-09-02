@@ -4,6 +4,7 @@ import {map} from "rxjs/operators";
 import { Posts } from '../Models/posts';
 import { User } from '../Models/user';
 import { JwtHelperService } from "@auth0/angular-jwt";
+import { Router } from '@angular/router';
 @Injectable({
   providedIn: 'root'
 })
@@ -11,7 +12,7 @@ export class AuthService {
   baseUrl:string="https://localhost:44331/api/user/"
   helper = new JwtHelperService();
   decodedToken:any;
-  constructor(private http:HttpClient) { }
+  constructor(private http:HttpClient,private router:Router) { }
   login(user:any)
   {
     return this.http.post(this.baseUrl+"login",user).pipe(
@@ -22,6 +23,10 @@ export class AuthService {
         }
       })
     );
+  }
+  logout(){
+    localStorage.removeItem("token");
+    this.router.navigate(["/login"]);
   }
 
   register(user:any){
