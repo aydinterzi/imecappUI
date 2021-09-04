@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
+import { AuthService } from '../services/auth.service';
 import { PostService } from '../services/post.service';
 
 @Component({
@@ -9,7 +10,7 @@ import { PostService } from '../services/post.service';
 })
 export class IlanverComponent implements OnInit {
 
-  constructor(private postService:PostService) { }
+  constructor(private postService:PostService,private authservice:AuthService) { }
 
   ngOnInit(): void {
   }

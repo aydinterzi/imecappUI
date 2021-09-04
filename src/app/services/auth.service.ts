@@ -35,6 +35,8 @@ export class AuthService {
 
   loggedIn(){
     const token=localStorage.getItem("token");
+    if(this.helper.isTokenExpired(token))
+        localStorage.removeItem("token");
     return !this.helper.isTokenExpired(token);
   }
 }
