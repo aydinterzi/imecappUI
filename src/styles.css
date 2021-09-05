@@ -1,7 +1,9 @@
 /* You can add global styles to this file, and also import other style files */
 @import "~alertifyjs/build/css/alertify.min.css";
 @import "~alertifyjs/build/css/themes/bootstrap.min.css";
-body{
+
+body {
   overflow-x: hidden;
-  font-family: 'Lato', sans-serif;
+  /* font-family: 'Lato', sans-serif; */
+  font-family: 'Roboto', sans-serif;
 }

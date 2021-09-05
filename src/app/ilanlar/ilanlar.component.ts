@@ -19,6 +19,7 @@ export class IlanlarComponent implements OnInit {
      this.postService.getPosts().subscribe(p=>
       {
         this.posts=p;
+        console.log(this.posts);
       }
       );
   }

@@ -3,14 +3,23 @@
     <app-sidebar></app-sidebar>
   </div>
   <div class="col-9">
-    <div class="row row-cols-1 row-cols-md-4 row-cols-lg-6 g-4">
+    <div class="row row-cols-2 row-cols-xl-3 g-3">
       <div *ngFor="let post of posts" class="col">
-        <div class="card ">
+        <div class="card border-success bg-light text-dark" style="height: 250px;">
+          <h5 class="card-header border-success">{{post.title}}</h5>
           <div class="card-body">
-            <h5 class="card-title">{{post.title}}</h5>
             <p class="card-text">{{post.description}}</p>
           </div>
-          <div class="card-footer">{{post.category}}</div>
+          <div class="card-footer border-success">
+            <div class="row">
+              <div class="col-4">{{post.category}}</div>
+              <div class="col-4">{{post.progLanguage}}</div>
+              <div class="col-4">{{post.language}}</div>
+            </div>
+          </div>
+          <div class="d-grid">
+            <button class="btn btn-outline-success">Send Message</button>
+          </div>
         </div>
       </div>
     </div>

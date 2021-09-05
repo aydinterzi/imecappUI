@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-light shadow-lg rounded" [ngClass]="{'margin-bot':loggedIn()}">
+<nav *ngIf="loggedIn()" class="navbar navbar-expand-lg navbar-light shadow-lg rounded mb-5">
   <div class="container">
     <a class="navbar-brand fs-2" >imecapp</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
