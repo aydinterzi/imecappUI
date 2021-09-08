@@ -15,9 +15,9 @@ export class PostService {
     if(postParams!=null){
       if(postParams.category!=null)
         params.append("category",postParams.category);
-      if(postParams.category!=null)
+      if(postParams.language!=null)
         params.append("language",postParams.language);
-      if(postParams.category!=null)
+      if(postParams.progLanguage!=null)
         params.append("progLanguage",postParams.progLanguage);
     }
   return this.http.get<Posts[]>(this.baseUrl,{params:params});
