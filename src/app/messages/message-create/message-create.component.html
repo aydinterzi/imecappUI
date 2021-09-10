@@ -1,0 +1,12 @@
+<form #messageForm="ngForm" (ngSubmit)="sendMessage()">
+  <div class="modal-body">
+    <div class="mb-3">
+      <label for="text" class="form-label">Send message</label>
+      <textarea class="form-control" required id="text" rows="5" name="message" [(ngModel)]="message.text"></textarea>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-danger" data-dissmiss="modal" (click)="closeModal()">Cancel</button>
+    <button type="submit" [disabled]="!messageForm.valid" class="btn btn-success">Send Message</button>
+  </div>
+</form>

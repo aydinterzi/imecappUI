@@ -13,6 +13,8 @@ import { SidebarComponent } from './sidebar/sidebar.component';
 import { AuthGuard } from './_guards/auth_guard';
 import { JwtModule } from "@auth0/angular-jwt";
 import { NotFoundComponent } from './not-found/not-found.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { MessageCreateComponent } from './messages/message-create/message-create.component';
 
 export function tokenGetter() {
   return localStorage.getItem("token");
@@ -27,7 +29,8 @@ export function tokenGetter() {
     IlanlarComponent,
     IlanverComponent,
     SidebarComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    MessageCreateComponent
   ],
   imports: [
     BrowserModule,
@@ -35,6 +38,7 @@ export function tokenGetter() {
     FormsModule,
     AppRoutingModule,
     HttpClientModule,
+    NgbModule,
     JwtModule.forRoot({
       config: {
         tokenGetter: tokenGetter,
@@ -42,6 +46,7 @@ export function tokenGetter() {
         disallowedRoutes: ["localhost:44331/api/user"],
       },
     }),
+    NgbModule,
   ],
   providers: [AuthGuard],
   bootstrap: [AppComponent]

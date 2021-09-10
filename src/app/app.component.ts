@@ -16,4 +16,7 @@ export class AppComponent implements OnInit {
       this.authService.decodedToken=this.helper.decodeToken(token);
     }
   }
+  loggedIn(){
+    return this.authService.loggedIn();
+  }
 }

@@ -8,7 +8,7 @@ import { AuthService } from './auth.service';
   providedIn: 'root'
 })
 export class PostService {
-  baseUrl:string="https://localhost:44331/api/Posts"
+  baseUrl:string="https://localhost:44331/api/Posts/"
   constructor(private http:HttpClient,private authservice:AuthService) { }
   getPosts(postParams?):Observable<Posts[]>{
     let params=new HttpParams();
@@ -25,6 +25,10 @@ export class PostService {
   addPost(post:Posts):Observable<Posts>{
     post.userId=this.authservice.decodedToken.nameid;
     return this.http.post<Posts>(this.baseUrl,post);
+  }
+
+  sendMessage(id:number,message:any){
+    return this.http.post(this.baseUrl+"messages/"+id,message);
   }
 
 }

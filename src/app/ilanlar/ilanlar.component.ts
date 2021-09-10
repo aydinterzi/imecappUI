@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { MessageCreateComponent } from '../messages/message-create/message-create.component';
 import { Posts } from '../Models/posts';
 import { PostService } from '../services/post.service';
 
@@ -9,7 +11,7 @@ import { PostService } from '../services/post.service';
 })
 export class IlanlarComponent implements OnInit {
   posts:Posts[];
-  constructor(private postService:PostService) { }
+  constructor(private postService:PostService,private modalService:NgbModal) { }
 
   ngOnInit(): void {
     this.getPosts();
@@ -22,5 +24,9 @@ export class IlanlarComponent implements OnInit {
         console.log(this.posts);
       }
       );
+  }
+  sendMessage(userId){
+      const modalRef=this.modalService.open(MessageCreateComponent);
+      modalRef.componentInstance.recipientId=userId;
   }
 }
